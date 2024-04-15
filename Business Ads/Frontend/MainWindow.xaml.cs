@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using ScottPlot;
+using System.Collections;
+using System.Collections.Generic;
+using System.Windows;
 
 namespace Frontend
 {
@@ -13,10 +16,24 @@ namespace Frontend
 
             Loaded += (s, e) =>
             {
-                double[] dataX = { 1, 2, 3, 4, 5 };
-                double[] dataY = { 1, 4, 9, 16, 25 };
-                WpfPlot1.Plot.Add.Scatter(dataX, dataY);
-                WpfPlot1.Refresh();
+                Random r = new Random();
+
+                double[] dataX = new double[24];
+                for(int i = 1; i < 24; i++)
+                {
+                    dataX[i] = i;
+                }
+
+                double[] dataY = new double[24];
+                for(int i = 1; i < 24; i++)
+                {
+                    dataY[i] =  r.Next(10);
+                }
+
+                EngagementPlot.Plot.Axes.SetLimitsX(left: 0, right: 24);
+                EngagementPlot.Plot.Axes.SetLimitsY(bottom: 0, top: 10);
+                EngagementPlot.Plot.Add.Bars(dataX, dataY);
+                EngagementPlot.Refresh();
             };
         }
     }
