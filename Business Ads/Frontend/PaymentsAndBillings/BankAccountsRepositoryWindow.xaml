@@ -16,20 +16,20 @@
         <Border x:Name="headerBorder" Background="DimGray" Padding="10">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <TextBlock x:Name="homePageBlock" Grid.Column="0" Text="Logo" FontSize="18" Foreground="White" 
-                           VerticalAlignment="Center"
-                           MouseLeftButtonDown="HomePage_MouseLeftButtonDown"
-                           MouseEnter="HomePage_MouseEnter" 
-                           MouseLeave="HomePage_MouseLeave"/>
+                                   VerticalAlignment="Center"
+                                   MouseLeftButtonDown="HomePage_MouseLeftButtonDown"
+                                   MouseEnter="HomePage_MouseEnter" 
+                                   MouseLeave="HomePage_MouseLeave"/>
                 <TextBlock x:Name="profileBlock" Grid.Column="1" Text="Profile" FontSize="18" Foreground="White" 
-                           Margin="10,0,0,0"
-                           HorizontalAlignment="Right"
-                           MouseLeftButtonDown="Profile_MouseLeftButtonDown"
-                           MouseEnter="Profile_MouseEnter" 
-                           MouseLeave="Profile_MouseLeave"/>
+                                   Margin="10,0,0,0"
+                                   HorizontalAlignment="Right"
+                                   MouseLeftButtonDown="Profile_MouseLeftButtonDown"
+                                   MouseEnter="Profile_MouseEnter" 
+                                   MouseLeave="Profile_MouseLeave"/>
             </Grid>
         </Border>
 
@@ -64,12 +64,12 @@
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="County: " Margin="0,0,10,0" VerticalAlignment="Center"/>
-                <ComboBox x:Name="countyComboBox" SelectedIndex="0" Text="Select county"></ComboBox>
+                <TextBox x:Name="txtCounty" Margin="0,0,0,5" Width="200"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="City: " Margin="0,0,10,0" VerticalAlignment="Center"/>
-                <ComboBox x:Name="cityComboBox" SelectedIndex="0" Text="Select city"></ComboBox>
+                <TextBox x:Name="txtCity" Margin="0,0,0,5" Width="200"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
@@ -80,7 +80,7 @@
             <StackPanel>
                 <TextBlock Text="Card Details" FontSize="18" FontWeight="Bold"/>
             </StackPanel>
-            
+
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Card Number:" Margin="0,0,10,0" VerticalAlignment="Center"/>
                 <TextBox x:Name="txtCardNumber" Margin="0,0,0,5" Width="200"/>

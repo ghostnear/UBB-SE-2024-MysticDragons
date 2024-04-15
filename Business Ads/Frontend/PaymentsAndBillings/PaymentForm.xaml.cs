@@ -15,13 +15,18 @@ using System.Windows.Shapes;
 namespace Frontend.PaymentsAndBillings
 {
     /// <summary>
-    /// Interaction logic for BankAccountsRepositoryWindow.xaml
+    /// Interaction logic for PaymentForm.xaml
     /// </summary>
-    public partial class BankAccountsRepositoryWindow : Window
+    public partial class PaymentForm : Window
     {
-        public BankAccountsRepositoryWindow()
+        public PaymentForm()
         {
             InitializeComponent();
+        }
+
+        private void PayButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Payment has been processed successfully!");
         }
 
         private void HomePage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
