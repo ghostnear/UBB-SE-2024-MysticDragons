@@ -24,6 +24,13 @@ namespace Frontend
                     statsWindow.Show();
                     Hide();
                 };
+                ExportButton.Click += (sender, eventData) =>
+                {
+                    ExportWindow exportWindow = new ExportWindow();
+                    exportWindow.mainWindow = this;
+                    exportWindow.Show();
+                    Hide();
+                };
             };
         }
     }

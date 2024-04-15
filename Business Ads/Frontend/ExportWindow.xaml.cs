@@ -25,6 +25,12 @@ namespace Frontend
     /// </summary>
     public partial class ExportWindow : Window
     {
+        public Window mainWindow;
+
+        public ExportWindow()
+        {
+            InitializeComponent();
+        }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
