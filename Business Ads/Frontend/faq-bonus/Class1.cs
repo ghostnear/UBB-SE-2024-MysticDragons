@@ -28,9 +28,9 @@ namespace Frontend.faq_bonus
         };
         }
 
-        public bool ValidateUser(string username, string password)
+        public bool ValidateUser(string username, string password, string email)
         {
-            return users.Any(u => u.Username == username && u.Password == password);
+            return users.Any(u =>u.Username==username && u.Email == email && u.Password == password);
         }
     }
     public class LoginViewModel
@@ -39,6 +39,7 @@ namespace Frontend.faq_bonus
 
         public string Username { get; set; }
         public string Password { get; set; }
+        public string Email { get; set; }
 
         public LoginViewModel()
         {
@@ -47,7 +48,7 @@ namespace Frontend.faq_bonus
 
         public bool CanLogin()
         {
-            return userService.ValidateUser(Username, Password);
+            return userService.ValidateUser(Username, Password,Email);
         }
     }
 
