@@ -8,7 +8,7 @@
   </ItemGroup>
   <ItemGroup>
 
-    <Compile Update="FAQ\Window1.xaml.cs">
+	  <Compile Update="FAQ\Window1.xaml.cs"></Compile>
 
     <Compile Update="MainWindow.xaml.cs">
       <SubType>Code</SubType>
