@@ -77,14 +77,30 @@ namespace Frontend.FAQ
             TextBox search = (TextBox)sender;
             string searchText = search.Text.ToLower();
 
-            List<FAQ> filteredFAQ = fAQs
+            List<FAQ> filteredFAQ;
+
+            if (!string.IsNullOrWhiteSpace(searchText))
+            {
+                filteredFAQ = fAQs
                     .Where(faq =>
                         faq.Question.ToLower().Contains(searchText) ||
                         faq.Topic.ToLower() == searchText
                     )
                     .ToList();
+            }
+            else
+            {
+                filteredFAQ = fAQs;
+            }
+
+            if (filteredFAQ == null || filteredFAQ.Count == 0)
+            {
+                filteredFAQ = fAQs;
+            }
+
             listFAQ.ItemsSource = filteredFAQ;
         }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -109,6 +125,12 @@ namespace Frontend.FAQ
         private void ClosePopup_Click(object sender, RoutedEventArgs e)
         {
             answerPopup.IsOpen = false;
+        }
+
+        private void submitQuestionButton_Click(object sender, RoutedEventArgs e)
+        {
+            SubmitQuestion windowSubmit = new SubmitQuestion();
+            windowSubmit.Show();
         }
     }
 }

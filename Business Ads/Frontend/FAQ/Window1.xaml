@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Frontend.FAQ"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800">
-    <Grid Background="LightGray">
+        Title="Window1" Height="450" Width="800" Background="LightGray">
+    <Grid>
         <TextBox IsReadOnly="True" Background="Gray" HorizontalAlignment="Left" Margin="191,41,0,0" TextWrapping="Wrap" 
          Text="Hello! I am ExpertAd, I can help you find information quickly. Select one of the questions below, or add one and we’ll get back to you." VerticalAlignment="Top" Width="248" Height="72" 
          TextAlignment="Center">
@@ -34,7 +34,7 @@
 
 
 
-        <ListBox x:Name="listFAQ" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="191,154,245,118" SelectionChanged="listFAQ_SelectionChanged" />
+        <ListBox x:Name="listFAQ" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="191,154,245,29" SelectionChanged="listFAQ_SelectionChanged" />
         <TextBox x:Name="searchBox" TextChanged="searchBox_TextChanged" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Background="Gray" HorizontalAlignment="Left" Margin="191,126,0,0" TextWrapping="Wrap" 
             Text="Search questions/topic..." VerticalAlignment="Top" Width="347" Height="23" 
             TextAlignment="Left">
@@ -57,6 +57,8 @@
                 </StackPanel>
             </Border>
         </Popup>
+        <Button x:Name="adminButton" BorderBrush="Black" BorderThickness="2" Content="Go to Admin Mode" HorizontalAlignment="Left" Margin="594,357,0,0" VerticalAlignment="Top" Height="48" Width="183" RenderTransformOrigin="0.536,0.165"/>
+        <Button x:Name="submitQuestionButton" BorderBrush="Black" BorderThickness="2" Content="Submit a new question" HorizontalAlignment="Left" Margin="594,268,0,0" VerticalAlignment="Top" Height="48" Width="182" Click="submitQuestionButton_Click"/>
 
     </Grid>
 </Window>

@@ -26,6 +26,8 @@ namespace Frontend.FAQ
             ReviewClass addingRev = new ReviewClass(user, review);
             repo.addReview(addingRev);
         }
+
+        
     }
 
 
