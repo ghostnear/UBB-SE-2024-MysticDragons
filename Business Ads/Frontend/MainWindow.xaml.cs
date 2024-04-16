@@ -1,5 +1,9 @@
-﻿using System.Windows;
-
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
 namespace Frontend
 {
     /// <summary>
@@ -11,12 +15,22 @@ namespace Frontend
         {
             InitializeComponent();
 
-            Loaded += (s, e) =>
+            Loaded += (sender, eventData) =>
             {
-                double[] dataX = { 1, 2, 3, 4, 5 };
-                double[] dataY = { 1, 4, 9, 16, 25 };
-                WpfPlot1.Plot.Add.Scatter(dataX, dataY);
-                WpfPlot1.Refresh();
+                StatsButton.Click += (sender, eventData) =>
+                {
+                    StatsWindow statsWindow = new StatsWindow();
+                    statsWindow.mainWindow = this;
+                    statsWindow.Show();
+                    Hide();
+                };
+                ExportButton.Click += (sender, eventData) =>
+                {
+                    ExportWindow exportWindow = new ExportWindow();
+                    exportWindow.mainWindow = this;
+                    exportWindow.Show();
+                    Hide();
+                };
             };
         }
     }
