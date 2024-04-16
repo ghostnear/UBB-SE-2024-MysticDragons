@@ -13,7 +13,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Task}" Margin="5"/>
+                        <TextBlock Text="{Binding}" Margin="5"/>
                         <Button Content="Delete" Click="DeleteButton_Click" Tag="{Binding ID}" Margin="5"/>
                     </StackPanel>
                 </DataTemplate>

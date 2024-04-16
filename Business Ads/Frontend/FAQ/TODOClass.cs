@@ -11,9 +11,9 @@ namespace Frontend.FAQ
         private string _task;
         private int _id;
 
-        public TODOClass(String task)
+        public TODOClass(String task, int id)
         {
-            this._task = task;
+            this._task = task; this._id = id;
         }
 
         public string Task { get { return _task; } set { _task = value; } }
@@ -23,6 +23,5 @@ namespace Frontend.FAQ
         {
             return $"{_id}. {_task}";
         }
-
     }
 }
