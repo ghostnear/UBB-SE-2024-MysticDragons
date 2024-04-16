@@ -132,5 +132,11 @@ namespace Frontend.FAQ
             SubmitQuestion windowSubmit = new SubmitQuestion();
             windowSubmit.Show();
         }
+
+        private void adminButton_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            AdminMode admindWindow = new AdminMode();
+            admindWindow.Show();
+        }
     }
 }

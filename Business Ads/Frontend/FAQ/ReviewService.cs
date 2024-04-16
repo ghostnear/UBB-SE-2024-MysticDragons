@@ -34,8 +34,8 @@ namespace Frontend.FAQ
         
     interface IServiceReview
     {
-      public List<ReviewClass> getAllReviews();
-        public void addReview(String review);
+    public List<ReviewClass> getAllReviews();
+    public void addReview(String review);
 
     }
 }
