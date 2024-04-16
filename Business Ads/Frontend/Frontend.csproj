@@ -9,7 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="FAQ\robot.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ScottPlot.WPF" Version="5.0.26" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="FAQ\robot.png" />
   </ItemGroup>
 
 </Project>
