@@ -7,17 +7,21 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="MainWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="PaymentsAndBillings\PaymentForm.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="PaymentsAndBillings\PaymentsAndBillingsMain.xaml.cs">
+
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+
+    <Page Update="faq-bonus\Window1.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="FAQ\Window1.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+
+
+
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
