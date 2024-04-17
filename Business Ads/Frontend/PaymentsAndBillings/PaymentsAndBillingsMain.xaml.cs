@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Frontend.PaymentsAndBillings.Controllers;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,21 +21,24 @@ namespace Frontend.PaymentsAndBillings
     /// </summary>
     public partial class PaymentsAndBillingsMain : Window
     {
+        private readonly BankAccountsRepositoryWindow _bankAccountsRepositoryWindow;
+        private readonly PaymentForm _paymentForm;
+
         public PaymentsAndBillingsMain()
         {
+            _bankAccountsRepositoryWindow = App.ServiceProvider.GetService<BankAccountsRepositoryWindow>();
+            _paymentForm = App.ServiceProvider.GetService<PaymentForm>();
             InitializeComponent();
         }
 
         private void BankAccountDetails_Click(object sender, RoutedEventArgs e)
         {
-            BankAccountsRepositoryWindow bankAccountsRepositoryWindow = new BankAccountsRepositoryWindow();
-            bankAccountsRepositoryWindow.Show();
+            _bankAccountsRepositoryWindow.Show();
         }
 
         private void PaymentForm_Click(object sender, RoutedEventArgs e)
         {
-            PaymentForm paymentForm = new PaymentForm();
-            paymentForm.Show();
+            _paymentForm.Show();
         }
     }
 }
