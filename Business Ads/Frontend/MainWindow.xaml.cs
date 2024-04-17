@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Frontend.PaymentsAndBillings.Controllers;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace Frontend
 {
     /// <summary>
