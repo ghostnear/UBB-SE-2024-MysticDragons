@@ -59,10 +59,8 @@
                 </ScrollViewer>
             </Border>
         </Popup>
-
-        <Button x:Name="adminButton" BorderBrush="Black" BorderThickness="2" Content="Go to Admin Mode - questions" HorizontalAlignment="Left" Margin="596,312,0,0" VerticalAlignment="Top" Height="32" Width="178" RenderTransformOrigin="0.536,0.165"/>
         <Button x:Name="submitQuestionButton" BorderBrush="Black" BorderThickness="2" Content="Submit a new question" HorizontalAlignment="Left" Margin="609,258,0,0" VerticalAlignment="Top" Height="34" Width="153" Click="submitQuestionButton_Click"/>
-        <Button x:Name="adminButton_Copy" BorderBrush="Black" BorderThickness="2" Content="Go to Admin Mode - reviews" HorizontalAlignment="Left" Margin="596,365,0,0" VerticalAlignment="Top" Height="37" Width="178" RenderTransformOrigin="0.536,0.165" Click="adminButton_Copy_Click"/>
+        <Button x:Name="adminButton_Copy" BorderBrush="Black" BorderThickness="2" Content="Go to Admin Mode - reviews" HorizontalAlignment="Left" Margin="596,327,0,0" VerticalAlignment="Top" Height="37" Width="178" RenderTransformOrigin="0.536,0.165" Click="adminButton_Copy_Click"/>
 
     </Grid>
 </Window>

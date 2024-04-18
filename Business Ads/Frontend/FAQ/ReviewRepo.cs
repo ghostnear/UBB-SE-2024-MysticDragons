@@ -37,7 +37,7 @@ namespace Frontend.FAQ
                     XmlSerializer serializer = new XmlSerializer(typeof(ReviewClass), new XmlRootAttribute("ReviewClass"));
 
                     reviewList = new List<ReviewClass>();
-
+                    xmlFilePath = $"C:\\Users\\User\\Documents\\GitHub\\UBB-SE-2024-MysticDragons\\Business Ads\\Frontend\\XMLFiles\\REVIEWitems.xml";
                     using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open))
                     using (XmlReader reader = XmlReader.Create(fileStream))
                     {
@@ -58,7 +58,7 @@ namespace Frontend.FAQ
 
         private void SaveToXml()
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<FAQ>), new XmlRootAttribute("Reviews"));
+            XmlSerializer serializer = new XmlSerializer(typeof(List<ReviewClass>), new XmlRootAttribute("Reviews"));
 
             using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Create))
             {
@@ -66,7 +66,7 @@ namespace Frontend.FAQ
             }
         }
 
-        public List<ReviewClass> GetReviewList()
+            public List<ReviewClass> GetReviewList()
             {
                 return reviewList;
             }
