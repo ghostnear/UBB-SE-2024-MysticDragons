@@ -38,7 +38,7 @@ namespace Frontend
         {
             public User(String name)
             {
-                this.Name = name;
+                Name = name;
             }
             public String Name { get; set; }
 
@@ -48,6 +48,11 @@ namespace Frontend
         public ExportWindow()
         {
             InitializeComponent();
+
+            Closed += (sender, eventData) =>
+            {
+                mainWindow.Show();
+            };
         }
         public void ExportPDF()
         {
