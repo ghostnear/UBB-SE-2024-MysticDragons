@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Frontend.PaymentsAndBillings;
 using System.Windows;
-using Frontend.PaymentsAndBillings.Controllers;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Frontend
 {
@@ -22,16 +16,29 @@ namespace Frontend
             {
                 StatsButton.Click += (sender, eventData) =>
                 {
-                    StatsWindow statsWindow = new StatsWindow();
-                    statsWindow.mainWindow = this;
+                    StatsWindow statsWindow = new()
+                    {
+                        mainWindow = this
+                    };
                     statsWindow.Show();
                     Hide();
                 };
                 ExportButton.Click += (sender, eventData) =>
                 {
-                    ExportWindow exportWindow = new ExportWindow();
-                    exportWindow.mainWindow = this;
+                    ExportWindow exportWindow = new()
+                    {
+                        mainWindow = this
+                    };
                     exportWindow.Show();
+                    Hide();
+                };
+                BillingButton.Click += (sender, eventData) =>
+                {
+                    PaymentsAndBillingsMain billingWindow = new()
+                    {
+                        mainWindow = this
+                    };
+                    billingWindow.Show();
                     Hide();
                 };
             };

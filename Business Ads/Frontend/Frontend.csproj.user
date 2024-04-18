@@ -8,11 +8,6 @@
   </ItemGroup>
   <ItemGroup>
 
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-
     <Page Update="faq-bonus\Window1.xaml">
       <SubType>Designer</SubType>
     </Page>

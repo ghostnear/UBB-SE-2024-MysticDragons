@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Frontend.PaymentsAndBillings.Services
+﻿namespace Backend.PaymentsAndBillings.Services
 {
     class DataEncryptionService
     {
-        static string alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        readonly static string alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-        private static string shuffleAlphabet()
+        private static string ShuffleAlphabet()
         {
             string shuffled = "";
             int lengthOfAlphabet = alphabet.Length;
-            Random rand = new Random();
+            Random rand = new();
             char randomCharacter;
             string copyOfAlphabet = alphabet;
             while (shuffled.Length < lengthOfAlphabet)
@@ -31,7 +25,7 @@ namespace Frontend.PaymentsAndBillings.Services
 
         public static Dictionary<string, string> Encrypt(string data)
         {
-            string key = shuffleAlphabet();
+            string key = ShuffleAlphabet();
             string encryptedData = "";
             for (int i = 0; i < data.Length; i++)
             {
@@ -48,7 +42,7 @@ namespace Frontend.PaymentsAndBillings.Services
                     encryptedData += data[i];
                 }
             }
-            Dictionary<string, string> result = new Dictionary<string, string>
+            Dictionary<string, string> result = new()
             {
                 { "data", encryptedData },
                 { "key", key }

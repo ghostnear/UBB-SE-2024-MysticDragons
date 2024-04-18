@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Main" Height="540" Width="960">
     <Grid>
-        <Button Name="StatsButton" Content="Stats Window" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Height="33" Width="179"/>
-        <Button x:Name="ExportButton" Content="Export Window" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top" Height="33" Width="179"/>
+        <Button x:Name="StatsButton" Content="Stats Window" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Height="33" Width="179"/>
+        <Button x:Name="ExportButton" Content="Export Window" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Height="33" Width="179"/>
+        <Button x:Name="BillingButton" Content="Billing Window" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" Height="33" Width="179"/>
     </Grid>
 </Window>

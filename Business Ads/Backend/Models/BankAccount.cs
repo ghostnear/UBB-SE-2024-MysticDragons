@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace Frontend.PaymentsAndBillings.Models
+namespace Backend.PaymentsAndBillings.Models
 {
     public class BankAccount
     {
@@ -44,13 +39,7 @@ namespace Frontend.PaymentsAndBillings.Models
             // validate phone number
             if (bankAccount.PhoneNumber == null || bankAccount.PhoneNumber.Length < 9)
             {
-                foreach (char c in bankAccount.PhoneNumber)
-                {
-                    if (!char.IsDigit(c))
-                    {
-                        return false;
-                    }
-                }
+                return false;
             }
 
             // validate county
@@ -74,13 +63,7 @@ namespace Frontend.PaymentsAndBillings.Models
             // validate number
             if (bankAccount.Number == null || bankAccount.Number.Length < 16)
             {
-                foreach (char c in bankAccount.Number)
-                {
-                    if (!char.IsDigit(c))
-                    {
-                        return false;
-                    }
-                }
+                return false;
             }
 
             // validate holder name
