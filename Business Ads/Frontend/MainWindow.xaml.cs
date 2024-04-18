@@ -44,7 +44,7 @@ namespace Frontend
                 };
                 faqButton.Click += (sender, eventData) =>
                 {
-                    Window1 faqWindow = new Window1();
+                    Window1 faqWindow = new();
                     faqWindow.Show();
                     Hide();
                 };

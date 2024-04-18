@@ -37,7 +37,7 @@
     </Page>
     <Page Update="FAQ\SubmitQuestion.xaml">
     </Page>
-    <Page Update="faq-bonus\Window1.xaml">
+    <Page Update="LoginWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="FAQ\Window1.xaml">
