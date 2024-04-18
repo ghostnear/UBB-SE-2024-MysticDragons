@@ -2,21 +2,21 @@
 
 namespace Frontend.FAQ
 {
-    internal class TODOClass
+    public class TODOClass
     {
         private string _task;
-        private static int _lastID = 0;
         private int _id;
 
         public TODOClass(string task)
         {
             this._task = task;
-            this._id = ++_lastID;
         }
+        
+        public TODOClass() { }
 
         public string Task { get { return _task; } set { _task = value; } }
 
-        public int ID { get { return _id; } }
+        public int ID { get { return _id; } set{ _id = value; } }
 
         public override string ToString()
         {

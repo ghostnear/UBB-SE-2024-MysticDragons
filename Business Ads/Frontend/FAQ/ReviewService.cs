@@ -28,7 +28,7 @@ namespace Frontend.FAQ
 
         public void addReview(string review)
         {
-            string user = "dummy"; 
+            string user = "Dan Oliver"; 
             ReviewClass addingRev = new ReviewClass(user, review);
             repo.addReview(addingRev);
         }
