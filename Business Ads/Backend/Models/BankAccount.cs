@@ -39,7 +39,13 @@ namespace Backend.PaymentsAndBillings.Models
             // validate phone number
             if (bankAccount.PhoneNumber == null || bankAccount.PhoneNumber.Length < 9)
             {
-                return false;
+                foreach (char c in bankAccount.PhoneNumber)
+                {
+                    if (!char.IsDigit(c))
+                    {
+                        return false;
+                    }
+                }
             }
 
             // validate county
@@ -63,7 +69,13 @@ namespace Backend.PaymentsAndBillings.Models
             // validate number
             if (bankAccount.Number == null || bankAccount.Number.Length < 16)
             {
-                return false;
+                foreach (char c in bankAccount.Number)
+                {
+                    if (!char.IsDigit(c))
+                    {
+                        return false;
+                    }
+                }
             }
 
             // validate holder name
