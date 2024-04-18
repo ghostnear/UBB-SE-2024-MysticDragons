@@ -2,19 +2,21 @@
 using System.Windows.Controls;
 using Backend.Services;
 using Backend.Models;
+using Frontend.FAQ;
 
-namespace Frontend.FAQ
+namespace Frontend
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for FAQWindow.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class FAQWindow : Window
     {
+        public Window mainWindow;
         private FAQService service;
         private ReviewService reviewService;
         private List<Backend.Models.FAQ> fAQs;
         private List<ReviewClass> reviews;
-        public Window1()
+        public FAQWindow()
         {
             service = FAQService.Instance;
             reviewService = ReviewService.Instance;
@@ -28,6 +30,11 @@ namespace Frontend.FAQ
             InitializeComponent();
 
             listFAQ.ItemsSource = fAQs;
+
+            Closed += (sender, e) =>
+            {
+                mainWindow.Show();
+            };
         }
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)

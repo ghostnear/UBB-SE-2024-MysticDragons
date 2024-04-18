@@ -8,8 +8,6 @@ using CsvHelper;
 using System.Net.Mail;
 using System.Net;
 using Frontend.Export;
-using Backend.PaymentsAndBillings.Repositories;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Frontend
 {

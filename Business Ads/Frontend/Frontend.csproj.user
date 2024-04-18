@@ -16,8 +16,6 @@
     <Compile Update="SubmitQuestion.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="FAQ\Window1.xaml.cs">
-    </Compile>
     <Compile Update="MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -38,7 +36,7 @@
     <Page Update="LoginWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="FAQ\Window1.xaml">
+    <Page Update="FAQWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
