@@ -59,7 +59,7 @@ namespace Frontend
 
             ServiceProvider = services.BuildServiceProvider();
 
-            MainWindow mainWindow = new();
+            LoginWindow mainWindow = new();
             mainWindow.Show();
         }
     }

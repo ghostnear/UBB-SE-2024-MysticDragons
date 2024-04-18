@@ -22,7 +22,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PaymentsAndBillings\PaymentsAndBillingsMain.xaml.cs">
-
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -30,9 +29,9 @@
     <Page Update="FAQ\AdminMode.xaml">
       <SubType>Designer</SubType>
     </Page>
-	  <Page Update="FAQ\SubmitQuestion.xaml"> </Page>
-
-    <Page Update="faq-bonus\Window1.xaml">
+    <Page Update="FAQ\SubmitQuestion.xaml">
+    </Page>
+    <Page Update="LoginWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="FAQ\Window1.xaml">
