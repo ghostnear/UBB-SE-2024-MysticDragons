@@ -1,5 +1,6 @@
-﻿using Frontend.PaymentsAndBillings;
 using System.Windows;
+using Frontend.FAQ;
+﻿using Frontend.PaymentsAndBillings;
 
 namespace Frontend
 {
@@ -39,6 +40,12 @@ namespace Frontend
                         mainWindow = this
                     };
                     billingWindow.Show();
+                    Hide();
+                }
+                faqButton.Click += (sender, eventData) =>
+                {
+                    Window1 faqWindow = new Window1();
+                    faqWindow.Show();
                     Hide();
                 };
             };
