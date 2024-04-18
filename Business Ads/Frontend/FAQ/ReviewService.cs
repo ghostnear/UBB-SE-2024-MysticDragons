@@ -8,11 +8,17 @@ namespace Frontend.FAQ
 {
     internal class ReviewService : IServiceReview
     {
+        private static readonly ReviewService instance = new ReviewService();
+        private ReviewRepo repo;
 
-        ReviewRepo repo;
-        public ReviewService()
+        private ReviewService()
         {
-            this.repo = new ReviewRepo();
+            repo = new ReviewRepo();
+        }
+
+        public static ReviewService Instance
+        {
+            get { return instance; }
         }
 
         public List<ReviewClass> getAllReviews()
@@ -20,20 +26,17 @@ namespace Frontend.FAQ
             return repo.GetReviewList();
         }
 
-        public void addReview(String review)
+        public void addReview(string review)
         {
-            String user = "dummy";
+            string user = "dummy"; 
             ReviewClass addingRev = new ReviewClass(user, review);
             repo.addReview(addingRev);
         }
-        
     }
-        
+
     interface IServiceReview
     {
-    public List<ReviewClass> getAllReviews();
-    public void addReview(String review);
-
+        List<ReviewClass> getAllReviews();
+        void addReview(string review);
     }
 }
-

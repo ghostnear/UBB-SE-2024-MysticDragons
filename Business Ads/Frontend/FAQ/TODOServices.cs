@@ -6,21 +6,31 @@ using System.Threading.Tasks;
 
 namespace Frontend.FAQ
 {
-    internal class TODOServices
+    internal class TODOServices : IServicesTODO
     {
-        TODORepository repository;
-        public TODOServices()
+        private static readonly TODOServices instance = new TODOServices();
+        private TODORepository repository;
+
+        private TODOServices()
         {
-            this.repository = new TODORepository();
+            repository = new TODORepository();
         }
+
+        public static TODOServices Instance
+        {
+            get { return instance; }
+        }
+
         public List<TODOClass> getTODOS()
         {
             return repository.getTODOS();
         }
+
         public void addTODO(TODOClass obj)
         {
             repository.addingTODO(obj);
         }
+
         public void removeTODO(int id)
         {
             TODOClass todoToRemove = getTODOS().FirstOrDefault(todo => todo.ID == id);
@@ -30,15 +40,12 @@ namespace Frontend.FAQ
                 repository.removingTODO(todoToRemove);
             }
         }
-
-
-
     }
 
     interface IServicesTODO
     {
-        public List<TODOClass> getTODOS();
-        public void addTODO(TODOClass obj);
-        public void removeTODO(int id);
+        List<TODOClass> getTODOS();
+        void addTODO(TODOClass obj);
+        void removeTODO(int id);
     }
 }

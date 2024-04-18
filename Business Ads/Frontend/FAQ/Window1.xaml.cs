@@ -25,14 +25,18 @@ namespace Frontend.FAQ
         private List<ReviewClass> reviews;
         public Window1()
         {
-            this.service = new FAQService();
-            this.reviewService = new ReviewService();
-            this.reviews = new List<ReviewClass>();
-            this.fAQs = new List<FAQ>();
-            this.fAQs = service.getAll();
-            this.reviews = reviewService.getAllReviews();
+            service = FAQService.Instance;
+            reviewService = ReviewService.Instance;
+
+            fAQs = new List<FAQ>();
+            reviews = new List<ReviewClass>();
+
+            fAQs = service.getAll();
+            reviews = reviewService.getAllReviews();
+
             InitializeComponent();
-            listFAQ.ItemsSource = this.fAQs;
+
+            listFAQ.ItemsSource = fAQs;
         }
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)

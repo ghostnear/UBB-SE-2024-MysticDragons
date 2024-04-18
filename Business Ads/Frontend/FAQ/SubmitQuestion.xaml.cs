@@ -25,11 +25,14 @@ namespace Frontend.FAQ
         private List<FAQ> faqs;
         public SubmitQuestion()
         {
-            service = new FAQService();
-            topics = new List<String>();
-            faqs = service.getAll();
+            InitializeComponent();
 
-            foreach (FAQ faq in faqs) 
+            service = FAQService.Instance;
+
+            topics = new List<string>();
+
+            List<FAQ> faqs = service.getAll();
+            foreach (FAQ faq in faqs)
             {
                 if (!topics.Contains(faq.Topic))
                 {
@@ -37,7 +40,6 @@ namespace Frontend.FAQ
                 }
             }
 
-            InitializeComponent();
             dropTopic.ItemsSource = topics;
         }
 

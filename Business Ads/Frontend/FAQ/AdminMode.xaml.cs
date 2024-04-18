@@ -24,8 +24,8 @@ namespace Frontend.FAQ
         private ReviewService reviewService;
         public AdminMode()
         {
-            services = new TODOServices();
-            reviewService = new ReviewService();
+            services = TODOServices.Instance;
+            reviewService = ReviewService.Instance;
             InitializeComponent();
             PopulateTodoList();
             PopulateReviewList();
