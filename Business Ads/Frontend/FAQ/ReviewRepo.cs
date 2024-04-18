@@ -1,44 +1,80 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
+using System.Xml;
 
 namespace Frontend.FAQ
 {
-    internal class ReviewRepo : IReview
+    public class ReviewRepo : IReview
     {
+            private string xmlFilePath;
             List<ReviewClass> reviewList;
             public ReviewRepo()
             {
                 reviewList = new List<ReviewClass>();
-                createReview();
+                string binDirectory = "\\bin";
+                string basePath = AppDomain.CurrentDomain.BaseDirectory;
+                string pathUntilBin;
+
+
+                int index = basePath.IndexOf(binDirectory);
+                pathUntilBin = basePath.Substring(0, index);
+                string s = $"\\XMLFiles\\REVIEWitems.xml";
+                xmlFilePath = pathUntilBin + s;
+                LoadFromXml();
             }
-            public List<ReviewClass> GetReviewList()
+        private void LoadFromXml()
+        {
+            try
+            {
+                if (File.Exists(xmlFilePath))
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(ReviewClass), new XmlRootAttribute("ReviewClass"));
+
+                    reviewList = new List<ReviewClass>();
+
+                    using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open))
+                    using (XmlReader reader = XmlReader.Create(fileStream))
+                    {
+                        while (reader.ReadToFollowing("ReviewClass"))
+                        {
+                            ReviewClass review = (ReviewClass)serializer.Deserialize(reader);
+                            reviewList.Add(review);
+                        }
+                    }
+                }
+                else
+                {
+                    reviewList = new List<ReviewClass>();
+                }
+            }
+            catch { }
+        }
+
+        private void SaveToXml()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<FAQ>), new XmlRootAttribute("Reviews"));
+
+            using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Create))
+            {
+                serializer.Serialize(fileStream, reviewList);
+            }
+        }
+
+        public List<ReviewClass> GetReviewList()
             {
                 return reviewList;
-            }
-            public void createReview()
-            {
-                ReviewClass r1 = new ReviewClass("ana", "shucks");
-                ReviewClass r2 = new ReviewClass("dana", "good");
-                ReviewClass r3 = new ReviewClass("aaa", "meh");
-                ReviewClass r4 = new ReviewClass("lori", "da");
-                ReviewClass r5 = new ReviewClass("sili", "nu");
-                ReviewClass r6 = new ReviewClass("ili", "hhiiihi");
-
-                reviewList.Add(r1);
-                reviewList.Add(r2);
-                reviewList.Add(r3);
-                reviewList.Add(r4);
-                reviewList.Add(r5);
-                reviewList.Add(r6);
-
             }
 
             public void addReview(ReviewClass newR)
             {
                 reviewList.Add(newR);
+                SaveToXml();
             }
 
 
@@ -46,7 +82,6 @@ namespace Frontend.FAQ
         interface IReview
         {
             public List<ReviewClass> GetReviewList();
-            public void createReview();
             public void addReview(ReviewClass newR);
 
         }
