@@ -41,7 +41,7 @@ namespace Frontend
                     };
                     billingWindow.Show();
                     Hide();
-                }
+                };
                 faqButton.Click += (sender, eventData) =>
                 {
                     Window1 faqWindow = new Window1();
