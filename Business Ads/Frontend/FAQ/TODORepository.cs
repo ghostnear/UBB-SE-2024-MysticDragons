@@ -27,12 +27,12 @@ namespace Frontend.FAQ
 
         public void createTODOS()
         {
-            TODOClass t1 = new TODOClass("task 1", 1);
-            TODOClass t2 = new TODOClass("task 2", 2);
-            TODOClass t3 = new TODOClass("task 3", 3);
-            TODOClass t4 = new TODOClass("task 4", 4);
-            TODOClass t5 = new TODOClass("task 5", 5);
-            TODOClass t6 = new TODOClass("task 6", 6);
+            TODOClass t1 = new TODOClass("task 1");
+            TODOClass t2 = new TODOClass("task 2");
+            TODOClass t3 = new TODOClass("task 3");
+            TODOClass t4 = new TODOClass("task 4");
+            TODOClass t5 = new TODOClass("task 5");
+            TODOClass t6 = new TODOClass("task 6");
 
             addingTODO(t1);
             addingTODO(t2);
