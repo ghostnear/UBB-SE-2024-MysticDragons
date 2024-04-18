@@ -19,7 +19,7 @@
         <Label Content="Finished task:" HorizontalAlignment="Left" Margin="43,295,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.261,0.283"/>
         <TextBox x:Name="removeText" HorizontalAlignment="Left" Margin="129,298,0,0" TextWrapping="Wrap" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Text="Input number of finished task" VerticalAlignment="Top" Width="184"/>
         <Label Content="Need to work on something later? Add your task:" HorizontalAlignment="Left" Margin="43,321,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="addTask" HorizontalAlignment="Left" Margin="43,352,0,0" TextWrapping="Wrap" GotFocus="addTask_LostFocus" Text="Input new task here" VerticalAlignment="Top" Width="270"/>
+        <TextBox x:Name="addTask" HorizontalAlignment="Left" Margin="43,352,0,0" TextWrapping="Wrap" GotFocus="addTask_GotFocus" LostFocus="addTask_LostFocus" Text="Input new task here" VerticalAlignment="Top" Width="270"/>
         <Button x:Name="removeTaskButton" Content="Remove" HorizontalAlignment="Left" Margin="318,298,0,0" VerticalAlignment="Top" Click="removeTaskButton_Click"/>
         <Button x:Name="addTaskButton" Content="Add" HorizontalAlignment="Left" Margin="318,350,0,0" VerticalAlignment="Top" Width="46" Click="addTaskButton_Click"/>
         <Label Content="Reviews" FontSize="20" HorizontalAlignment="Left" Margin="564,67,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.281,0.793"/>
