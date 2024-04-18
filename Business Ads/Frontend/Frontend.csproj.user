@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Export\ExportSucces.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="FAQ\AdminMode.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -22,16 +25,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PaymentsAndBillings\PaymentsAndBillingsMain.xaml.cs">
-
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Export\ExportSucces.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="FAQ\AdminMode.xaml">
       <SubType>Designer</SubType>
     </Page>
-	  <Page Update="FAQ\SubmitQuestion.xaml"> </Page>
-
+    <Page Update="FAQ\SubmitQuestion.xaml">
+    </Page>
     <Page Update="faq-bonus\Window1.xaml">
       <SubType>Designer</SubType>
     </Page>

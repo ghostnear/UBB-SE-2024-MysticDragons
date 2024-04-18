@@ -45,7 +45,7 @@
             </Rectangle>
             <CheckBox x:Name="DateCheck" Content="Date" HorizontalAlignment="Left" Margin="555,279,0,0" VerticalAlignment="Top"/>
             <CheckBox x:Name="RecipientCheck" Content="Recipient" HorizontalAlignment="Left" Margin="555,330,0,0" VerticalAlignment="Top"/>
-            <CheckBox x:Name="SignatureCheck" Content="Signature" HorizontalAlignment="Left" Margin="555,304,0,0" VerticalAlignment="Top" Checked="DownloadButton1_Copy2_Checked"/>
+            <CheckBox x:Name="SignatureCheck" Content="Signature" HorizontalAlignment="Left" Margin="555,304,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="RecipientInput" HorizontalAlignment="Left" Margin="555,351,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFDEDEDE" Height="15"/>
             <Label Content="Extra Details" HorizontalAlignment="Left" Margin="606,249,0,0" VerticalAlignment="Top"/>
             <Label Content="Style" HorizontalAlignment="Left" Margin="625,63,0,0" VerticalAlignment="Top"/>
