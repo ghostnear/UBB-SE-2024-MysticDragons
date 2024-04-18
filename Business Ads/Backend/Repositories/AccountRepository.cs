@@ -1,6 +1,5 @@
 ﻿using Backend.PaymentsAndBillings.Models;
 using Backend.PaymentsAndBillings.Services;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Backend.PaymentsAndBillings.Repositories
 {
