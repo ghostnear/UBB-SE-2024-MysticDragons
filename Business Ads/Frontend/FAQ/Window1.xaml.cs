@@ -1,5 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using Backend.Services;
+using Backend.Models;
 
 namespace Frontend.FAQ
 {
@@ -10,14 +12,14 @@ namespace Frontend.FAQ
     {
         private FAQService service;
         private ReviewService reviewService;
-        private List<FAQ> fAQs;
+        private List<Backend.Models.FAQ> fAQs;
         private List<ReviewClass> reviews;
         public Window1()
         {
             service = FAQService.Instance;
             reviewService = ReviewService.Instance;
 
-            fAQs = new List<FAQ>();
+            fAQs = new List<Backend.Models.FAQ>();
             reviews = new List<ReviewClass>();
 
             fAQs = service.getAll();
@@ -70,7 +72,7 @@ namespace Frontend.FAQ
             TextBox search = (TextBox)sender;
             string searchText = search.Text.ToLower();
 
-            List<FAQ> filteredFAQ;
+            List<Backend.Models.FAQ> filteredFAQ;
 
             if (!string.IsNullOrWhiteSpace(searchText))
             {
@@ -106,7 +108,7 @@ namespace Frontend.FAQ
         {
             if (listFAQ.SelectedItem != null)
             {
-                FAQ selectedFAQ = (FAQ)listFAQ.SelectedItem;
+                Backend.Models.FAQ selectedFAQ = (Backend.Models.FAQ)listFAQ.SelectedItem;
                 answerTextBlock.Text = selectedFAQ.Answer;
                 answerPopup.IsOpen = true;
             }

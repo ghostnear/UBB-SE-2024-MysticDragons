@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Backend.Models;
+using Backend.Repositories;
 
-namespace Frontend.FAQ
+namespace Backend.Services
 {
-    internal class ReviewService : IServiceReview
+    public class ReviewService : IServiceReview
     {
         private static readonly ReviewService instance = new ReviewService();
-        private ReviewRepo repo;
+        private ReviewRepository repo;
 
         private ReviewService()
         {
-            repo = new ReviewRepo();
+            repo = new ReviewRepository();
         }
 
         public static ReviewService Instance
@@ -28,7 +25,7 @@ namespace Frontend.FAQ
 
         public void addReview(string review)
         {
-            string user = "Dan Oliver"; 
+            string user = "Dan Oliver";
             ReviewClass addingRev = new ReviewClass(user, review);
             repo.addReview(addingRev);
         }

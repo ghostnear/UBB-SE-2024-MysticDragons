@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Xml;
+﻿using System.Xml;
 using System.Xml.Serialization;
+using Backend.Models;
 
-namespace Frontend.FAQ
+namespace Backend.Repositories
 {
     public class FAQRepository : IFAQ
     {
@@ -38,7 +36,7 @@ namespace Frontend.FAQ
             {
                 if (File.Exists(xmlFilePath))
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(FAQ), new XmlRootAttribute("FAQ"));
+                    XmlSerializer serializer = new(typeof(FAQ), new XmlRootAttribute("FAQ"));
 
                     faqList = new List<FAQ>();
 
@@ -62,21 +60,21 @@ namespace Frontend.FAQ
 
         private void SaveFAQsToXml()
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<FAQ>), new XmlRootAttribute("FAQs"));
+            XmlSerializer serializer = new(typeof(List<FAQ>), new XmlRootAttribute("FAQs"));
 
-            using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Create))
+            using (FileStream fileStream = new(xmlFilePath, FileMode.Create))
             {
                 serializer.Serialize(fileStream, faqList);
             }
         }
 
-        public void addFAQ(FAQ newQ)
+        public void addFAQ(Backend.Models.FAQ newQ)
         {
             faqList.Add(newQ);
             SaveFAQsToXml();
         }
 
-        public void deleteFAQ(FAQ q)
+        public void deleteFAQ(Backend.Models.FAQ q)
         {
             faqList.Remove(q);
             SaveFAQsToXml();
@@ -85,8 +83,8 @@ namespace Frontend.FAQ
 
     interface IFAQ
     {
-        List<FAQ> GetFAQList();
-        void addFAQ(FAQ newQ);
-        void deleteFAQ(FAQ q);
+        List<Backend.Models.FAQ> GetFAQList();
+        void addFAQ(Backend.Models.FAQ newQ);
+        void deleteFAQ(Backend.Models.FAQ q);
     }
 }

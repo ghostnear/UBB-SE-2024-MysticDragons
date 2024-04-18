@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Backend.Models;
+using Backend.Repositories;
 
-namespace Frontend.FAQ
+namespace Backend.Services
 {
-    internal class TODOServices : IServicesTODO
+    public class TODOServices : IServicesTODO
     {
-        private static readonly TODOServices instance = new TODOServices();
-        private TODORepository repository;
+        private static readonly TODOServices instance = new();
+        private readonly TODORepository repository;
 
         private TODOServices()
         {

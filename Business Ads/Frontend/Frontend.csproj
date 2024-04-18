@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="FAQ\robot.png" />
+    <Resource Include="robot.png" />
     <Resource Include="PaymentsAndBillings\doggo.png" />
   </ItemGroup>
 

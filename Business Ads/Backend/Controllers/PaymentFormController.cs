@@ -1,9 +1,9 @@
-﻿using Backend.PaymentsAndBillings.Models;
-using Backend.PaymentsAndBillings.Repositories;
+﻿using Backend.Models;
+using Backend.Repositories;
 using System.Net;
 using System.Net.Mail;
 
-namespace Backend.PaymentsAndBillings.Controllers
+namespace Backend.Controllers
 {
     public class PaymentFormController(AccountRepository repoAccount, ProductRepository repoProduct)
     {

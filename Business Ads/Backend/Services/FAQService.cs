@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Backend.Models;
+using Backend.Repositories;
 
-namespace Frontend.FAQ
+namespace Backend.Services
 {
-    internal class FAQService 
+    public class FAQService
     {
-        private static readonly FAQService instance = new FAQService();
+        private static readonly FAQService instance = new();
         private FAQRepository repo;
         private List<FAQ> submittedQuestions;
 

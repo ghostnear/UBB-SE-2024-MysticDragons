@@ -1,10 +1,8 @@
 ﻿using System.Windows;
-using Backend.PaymentsAndBillings.Models;
-using Backend.PaymentsAndBillings.Controllers;
 using Microsoft.Extensions.DependencyInjection;
-using Frontend.PaymentsAndBillings;
-using Backend.PaymentsAndBillings.Repositories;
-using OpenTK.Graphics.OpenGL;
+using Backend.Models;
+using Backend.Controllers;
+using Backend.Repositories;
 
 namespace Frontend
 {

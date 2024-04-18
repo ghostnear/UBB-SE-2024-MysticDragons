@@ -1,4 +1,4 @@
-﻿namespace Backend.PaymentsAndBillings.Services
+﻿namespace Backend.Services
 {
     class DataEncryptionService
     {

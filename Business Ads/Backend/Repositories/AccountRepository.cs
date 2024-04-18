@@ -1,7 +1,7 @@
-﻿using Backend.PaymentsAndBillings.Models;
-using Backend.PaymentsAndBillings.Services;
+﻿using Backend.Models;
+using Backend.Services;
 
-namespace Backend.PaymentsAndBillings.Repositories
+namespace Backend.Repositories
 {
     public class AccountRepository
     {

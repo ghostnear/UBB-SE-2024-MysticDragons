@@ -1,15 +1,15 @@
-﻿using System;
-
-namespace Frontend.FAQ
+﻿namespace Backend.Models
 {
     public class TODOClass
     {
+        // TODO: remove class from the name of the class lol.
+
         private string _task;
         private int _id;
 
         public TODOClass(string task)
         {
-            this._task = task;
+            _task = task;
         }
         
         public TODOClass() { }

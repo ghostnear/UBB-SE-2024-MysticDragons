@@ -10,10 +10,10 @@
     <Compile Update="Export\ExportSucces.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="FAQ\AdminMode.xaml.cs">
+    <Compile Update="AdminMode.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="FAQ\SubmitQuestion.xaml.cs">
+    <Compile Update="SubmitQuestion.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="FAQ\Window1.xaml.cs">
@@ -32,10 +32,8 @@
     <Page Update="Export\ExportSucces.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="FAQ\AdminMode.xaml">
+    <Page Update="AdminMode.xaml">
       <SubType>Designer</SubType>
-    </Page>
-    <Page Update="FAQ\SubmitQuestion.xaml">
     </Page>
     <Page Update="LoginWindow.xaml">
       <SubType>Designer</SubType>

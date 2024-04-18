@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Backend.PaymentsAndBillings.Models
+namespace Backend.Models
 {
     public class BankAccount
     {

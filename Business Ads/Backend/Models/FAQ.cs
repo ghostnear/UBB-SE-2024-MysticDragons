@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Frontend.FAQ
+﻿namespace Backend.Models
 {
     public class FAQ
     {
@@ -18,13 +12,15 @@ namespace Frontend.FAQ
         {
 
         }
+
         public FAQ(string q, string a, string topic)
         {
-            this._id = ++_lastID;
-            this._question = q;
-            this._answer = a;
-            this._topic = topic;
+            _id = ++_lastID;
+            _question = q;
+            _answer = a;
+            _topic = topic;
         }
+
         public int Id
         {
             get { return _id; }

@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using Backend.Services;
 
 namespace Frontend.FAQ
 {
@@ -21,8 +10,8 @@ namespace Frontend.FAQ
     public partial class SubmitQuestion : Window
     {
         private FAQService service;
-        private List<String> topics;
-        private List<FAQ> faqs;
+        private List<string> topics;
+        private List<Backend.Models.FAQ> faqs;
         public SubmitQuestion()
         {
             InitializeComponent();
@@ -31,8 +20,8 @@ namespace Frontend.FAQ
 
             topics = new List<string>();
 
-            List<FAQ> faqs = service.getAll();
-            foreach (FAQ faq in faqs)
+            List<Backend.Models.FAQ> faqs = service.getAll();
+            foreach (Backend.Models.FAQ faq in faqs)
             {
                 if (!topics.Contains(faq.Topic))
                 {
@@ -65,7 +54,7 @@ namespace Frontend.FAQ
         {
             string question = questionBox.Text;
             string selectedTopic = dropTopic.SelectedItem as string;
-            FAQ newQ = new FAQ(question, "to be added", selectedTopic);
+            Backend.Models.FAQ newQ = new Backend.Models.FAQ(question, "to be added", selectedTopic);
             service.addSubmittedQuestion(newQ);
             MessageBox.Show("The question has been submitted. Check the FAQ page later to see if it has been approved.");
         }

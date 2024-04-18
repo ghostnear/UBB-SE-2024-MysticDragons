@@ -1,32 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
-using System;
-using System.ComponentModel;
 using System.Drawing;
-using System.Reflection.Metadata;
-using System.Formats.Asn1;
 using System.Globalization;
 using System.IO;
 using CsvHelper;
-using Syncfusion.Pdf.Parsing;
 using System.Net.Mail;
 using System.Net;
-using System.Windows.Media.Media3D;
 using Frontend.Export;
-using Backend.PaymentsAndBillings.Repositories;
 
 namespace Frontend
 {

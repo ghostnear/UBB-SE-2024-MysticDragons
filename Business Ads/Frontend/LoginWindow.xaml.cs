@@ -9,7 +9,7 @@ namespace Frontend
     /// </summary>
     public partial class LoginWindow : Window
     {
-        private LoginViewModel loginViewModel;
+        private readonly LoginViewModel loginViewModel;
 
         public LoginWindow()
         {

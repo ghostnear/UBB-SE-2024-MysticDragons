@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 using System.Xml;
+using Backend.Models;
 
-namespace Frontend.FAQ
+namespace Backend.Repositories
 {
     public class TODORepository : IRepository
     {
         private List<TODOClass> todos;
-        private string xmlFilePath;
+        private readonly string xmlFilePath;
         private static int _lastId = 0;
 
         public TODORepository() 
@@ -37,11 +31,11 @@ namespace Frontend.FAQ
             {
                 if (File.Exists(xmlFilePath))
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(TODOClass), new XmlRootAttribute("TODOClass"));
+                    XmlSerializer serializer = new(typeof(TODOClass), new XmlRootAttribute("TODOClass"));
 
                     todos = new List<TODOClass>();
 
-                    using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open))
+                    using (FileStream fileStream = new(xmlFilePath, FileMode.Open))
                     using (XmlReader reader = XmlReader.Create(fileStream))
                     {
                         while (reader.ReadToFollowing("TODOClass"))
@@ -62,9 +56,9 @@ namespace Frontend.FAQ
 
         private void SaveToXml()
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<TODOClass>), new XmlRootAttribute("TODOs"));
+            XmlSerializer serializer = new(typeof(List<TODOClass>), new XmlRootAttribute("TODOs"));
 
-            using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Create))
+            using (FileStream fileStream = new(xmlFilePath, FileMode.Create))
             {
                 serializer.Serialize(fileStream, todos);
             }
