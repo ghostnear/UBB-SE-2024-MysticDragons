@@ -1,62 +1,92 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace Frontend.FAQ
 {
-    class FAQRepository : IFAQ
+    public class FAQRepository : IFAQ
     {
-        List<FAQ> faqList;
-        public FAQRepository() 
+
+        private string xmlFilePath;
+        private List<FAQ> faqList;
+
+        public FAQRepository()
         {
             faqList = new List<FAQ>();
-            createFAQ();
+            string binDirectory = "\\bin";
+            string basePath = AppDomain.CurrentDomain.BaseDirectory;
+            string pathUntilBin;
+
+
+            int index = basePath.IndexOf(binDirectory);
+            pathUntilBin = basePath.Substring(0, index);
+            string s = $"\\XMLFiles\\FAQitems.xml";
+            xmlFilePath = pathUntilBin + s;
+            LoadFAQsFromXml();
         }
+
         public List<FAQ> GetFAQList()
         {
             return faqList;
         }
-        public void createFAQ()
-        {
-            FAQ q1 = new FAQ(1, "a", "e", "to");
-            FAQ q2 = new FAQ(2, "b", "f", "o");
-            FAQ q3 = new FAQ(3, "c", "g", "tog");
-            FAQ q4 = new FAQ(4, "d", "h", "toa");
 
-            faqList.Add(q1);
-            faqList.Add(q2);
-            faqList.Add(q3);
-            faqList.Add(q4);
-            faqList.Add(q1);
-            faqList.Add(q2);
-            faqList.Add(q3);
-            faqList.Add(q4);
-            faqList.Add(q1);
-            faqList.Add(q2);
-            faqList.Add(q3);
-            faqList.Add(q4);
+        private void LoadFAQsFromXml()
+        {
+            try
+            {
+                if (File.Exists(xmlFilePath))
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(FAQ), new XmlRootAttribute("FAQ"));
+
+                    faqList = new List<FAQ>();
+
+                    using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open))
+                    using (XmlReader reader = XmlReader.Create(fileStream))
+                    {
+                        while (reader.ReadToFollowing("FAQ"))
+                        {
+                            FAQ faq = (FAQ)serializer.Deserialize(reader);
+                            faqList.Add(faq);
+                        }
+                    }
+                }
+                else
+                {
+                    faqList = new List<FAQ>();
+                }
+            }
+            catch { }
+        }
+
+        private void SaveFAQsToXml()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<FAQ>), new XmlRootAttribute("FAQs"));
+
+            using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Create))
+            {
+                serializer.Serialize(fileStream, faqList);
+            }
         }
 
         public void addFAQ(FAQ newQ)
         {
             faqList.Add(newQ);
+            SaveFAQsToXml();
         }
 
         public void deleteFAQ(FAQ q)
         {
             faqList.Remove(q);
+            SaveFAQsToXml();
         }
-
-
     }
+
     interface IFAQ
     {
-        public List <FAQ> GetFAQList();
-        public void createFAQ();
-        public void addFAQ(FAQ newQ);
-        public void deleteFAQ(FAQ q);
-
+        List<FAQ> GetFAQList();
+        void addFAQ(FAQ newQ);
+        void deleteFAQ(FAQ q);
     }
 }

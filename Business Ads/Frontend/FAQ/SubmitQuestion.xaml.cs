@@ -65,7 +65,7 @@ namespace Frontend.FAQ
         {
             string question = questionBox.Text;
             string selectedTopic = dropTopic.SelectedItem as string;
-            FAQ newQ = new FAQ(100, question, "to be added", selectedTopic);
+            FAQ newQ = new FAQ(question, "to be added", selectedTopic);
             service.addSubmittedQuestion(newQ);
             MessageBox.Show("The question has been submitted. Check the FAQ page later to see if it has been approved.");
         }

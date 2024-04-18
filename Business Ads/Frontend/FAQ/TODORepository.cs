@@ -1,23 +1,85 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
+using System.Xml;
 
 namespace Frontend.FAQ
 {
-    internal class TODORepository : IRepository
+    public class TODORepository : IRepository
     {
         private List<TODOClass> todos;
+        private string xmlFilePath;
+        private static int _lastId = 0;
+
         public TODORepository() 
-        { todos = new List<TODOClass>(); createTODOS(); }
+        { 
+            todos = new List<TODOClass>();
+            string binDirectory = "\\bin";
+            string basePath = AppDomain.CurrentDomain.BaseDirectory;
+            string pathUntilBin;
+
+
+            int index = basePath.IndexOf(binDirectory);
+            pathUntilBin = basePath.Substring(0, index);
+            string s = $"\\XMLFiles\\TODOitems.xml";
+            xmlFilePath = pathUntilBin + s;
+            LoadFromXml();
+        }
+
+        private void LoadFromXml()
+        {
+            try
+            {
+                if (File.Exists(xmlFilePath))
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(TODOClass), new XmlRootAttribute("TODOClass"));
+
+                    todos = new List<TODOClass>();
+
+                    using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open))
+                    using (XmlReader reader = XmlReader.Create(fileStream))
+                    {
+                        while (reader.ReadToFollowing("TODOClass"))
+                        {
+                            TODOClass todo = (TODOClass)serializer.Deserialize(reader);
+                            todo.ID = _lastId++;
+                            todos.Add(todo);
+                        }
+                    }
+                }
+                else
+                {
+                    todos = new List<TODOClass>();
+                }
+            }
+            catch { }
+        }
+
+        private void SaveToXml()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<TODOClass>), new XmlRootAttribute("TODOs"));
+
+            using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Create))
+            {
+                serializer.Serialize(fileStream, todos);
+            }
+        }
         public void addingTODO(TODOClass newTODO)
         {
+            newTODO.ID = _lastId++;
             todos.Add(newTODO);
+            SaveToXml();
         }
         public void removingTODO(TODOClass newTODO)
         {
             todos.Remove(newTODO);
+            SaveToXml();
+
         }
 
         public List<TODOClass> getTODOS()
@@ -25,23 +87,6 @@ namespace Frontend.FAQ
             return todos;
         }
 
-        public void createTODOS()
-        {
-            TODOClass t1 = new TODOClass("task 1");
-            TODOClass t2 = new TODOClass("task 2");
-            TODOClass t3 = new TODOClass("task 3");
-            TODOClass t4 = new TODOClass("task 4");
-            TODOClass t5 = new TODOClass("task 5");
-            TODOClass t6 = new TODOClass("task 6");
-
-            addingTODO(t1);
-            addingTODO(t2);
-            addingTODO(t3);
-            addingTODO(t4);
-            addingTODO(t5);
-            addingTODO(t6);
-
-        }
 
 
     }
@@ -51,7 +96,5 @@ namespace Frontend.FAQ
         public void addingTODO(TODOClass newTODO);
         public void removingTODO(TODOClass newTODO);
         public List<TODOClass> getTODOS();
-
-        public void createTODOS();
     }
 }
