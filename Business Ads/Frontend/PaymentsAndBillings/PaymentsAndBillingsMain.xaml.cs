@@ -32,11 +32,10 @@ namespace Frontend.PaymentsAndBillings
 
         private void PaymentForm_Click(object sender, RoutedEventArgs e)
         {
-            var _paymentForm = new PaymentForm
-            {
-                mainWindow = this
-            };
-
+            var _paymentForm = new PaymentForm(
+                App.ServiceProvider.GetService<PaymentFormController>()
+            );
+            _paymentForm.mainWindow = this;
             _paymentForm.Show();
         }
     }

@@ -1,6 +1,8 @@
-﻿using System.Windows;
+﻿using Backend.PaymentsAndBillings.Controllers;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Frontend.PaymentsAndBillings
 {
@@ -10,9 +12,13 @@ namespace Frontend.PaymentsAndBillings
     public partial class PaymentForm : Window
     {
         public Window mainWindow;
-        public PaymentForm()
+        private readonly PaymentFormController _paymentController;
+
+        public PaymentForm(PaymentFormController c)
         {
+            _paymentController = c;
             InitializeComponent();
+            UpdateFields();
 
             Closed += (sender, EventData) =>
             {
@@ -20,9 +26,26 @@ namespace Frontend.PaymentsAndBillings
             };
         }
 
-        private void PayButton_Click(object sender, RoutedEventArgs e)
+        private void UpdateFields()
         {
-            MessageBox.Show("Payment has been processed successfully!");
+            itemName.Text = _paymentController.getProduct().Name;
+            itemDescription.Text = _paymentController.getProduct().Description;
+            itemPrice.Text = _paymentController.getProduct().Price;
+            var itemImageSource = _paymentController.getProduct().Image;
+            itemImage.Source = new BitmapImage(new Uri(itemImageSource, UriKind.Relative));
+        }
+
+        private async void PayButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                await _paymentController.SendPaymentConfirmationMailAsync();
+                MessageBox.Show("Payment sent successfully!");
+            }
+            catch
+            {
+                MessageBox.Show("Payment failed!");
+            }
         }
 
         private void HomePage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
