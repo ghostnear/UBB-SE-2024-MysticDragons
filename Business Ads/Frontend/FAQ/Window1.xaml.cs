@@ -25,14 +25,18 @@ namespace Frontend.FAQ
         private List<ReviewClass> reviews;
         public Window1()
         {
-            this.service = new FAQService();
-            this.reviewService = new ReviewService();
-            this.reviews = new List<ReviewClass>();
-            this.fAQs = new List<FAQ>();
-            this.fAQs = service.getAll();
-            this.reviews = reviewService.getAllReviews();
+            service = FAQService.Instance;
+            reviewService = ReviewService.Instance;
+
+            fAQs = new List<FAQ>();
+            reviews = new List<ReviewClass>();
+
+            fAQs = service.getAll();
+            reviews = reviewService.getAllReviews();
+
             InitializeComponent();
-            listFAQ.ItemsSource = this.fAQs;
+
+            listFAQ.ItemsSource = fAQs;
         }
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -77,14 +81,30 @@ namespace Frontend.FAQ
             TextBox search = (TextBox)sender;
             string searchText = search.Text.ToLower();
 
-            List<FAQ> filteredFAQ = fAQs
+            List<FAQ> filteredFAQ;
+
+            if (!string.IsNullOrWhiteSpace(searchText))
+            {
+                filteredFAQ = fAQs
                     .Where(faq =>
                         faq.Question.ToLower().Contains(searchText) ||
                         faq.Topic.ToLower() == searchText
                     )
                     .ToList();
+            }
+            else
+            {
+                filteredFAQ = fAQs;
+            }
+
+            if (filteredFAQ == null || filteredFAQ.Count == 0)
+            {
+                filteredFAQ = fAQs;
+            }
+
             listFAQ.ItemsSource = filteredFAQ;
         }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -109,6 +129,18 @@ namespace Frontend.FAQ
         private void ClosePopup_Click(object sender, RoutedEventArgs e)
         {
             answerPopup.IsOpen = false;
+        }
+
+        private void submitQuestionButton_Click(object sender, RoutedEventArgs e)
+        {
+            SubmitQuestion windowSubmit = new SubmitQuestion();
+            windowSubmit.Show();
+        }
+
+        private void adminButton_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            AdminMode admindWindow = new AdminMode();
+            admindWindow.Show();
         }
     }
 }
