@@ -32,6 +32,11 @@ namespace Frontend.FAQ
         {
             submittedQuestions.Add(newQ);
         }
+
+        public List<FAQ> getSubmittedQuestions()
+        {
+            return submittedQuestions;
+        }
     }
 
 }

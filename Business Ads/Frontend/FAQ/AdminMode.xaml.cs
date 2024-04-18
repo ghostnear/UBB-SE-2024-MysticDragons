@@ -122,7 +122,6 @@ namespace Frontend.FAQ
             {
                 TODOClass task = new TODOClass(newTask);
                 services.addTODO(task);
-            
             }
             PopulateTodoList();
         }
