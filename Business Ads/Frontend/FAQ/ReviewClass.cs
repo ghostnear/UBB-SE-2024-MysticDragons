@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Frontend.FAQ
 {
-    internal class ReviewClass
+    public class ReviewClass
     {
         private string _user;
         private string _review;
@@ -16,6 +16,8 @@ namespace Frontend.FAQ
             this._user = user;
             this._review = review;
         }
+
+        public ReviewClass() { }    
 
         public string User
         {
@@ -31,7 +33,7 @@ namespace Frontend.FAQ
 
         public override string ToString()
         {
-            return $"{this._review}, left from {this._user}";
+            return $"--> {this._review} (left from {this._user})\n";
         }
     }
 }
