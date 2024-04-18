@@ -31,7 +31,7 @@ namespace Frontend.FAQ
 
         public override string ToString()
         {
-            return $"{this._review}";
+            return $"{this._review}, left from {this._user}";
         }
     }
 }

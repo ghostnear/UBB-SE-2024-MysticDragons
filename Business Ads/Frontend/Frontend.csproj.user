@@ -8,8 +8,14 @@
   </ItemGroup>
   <ItemGroup>
 
-	  <Compile Update="FAQ\Window1.xaml.cs"></Compile>
-
+    <Compile Update="FAQ\AdminMode.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="FAQ\SubmitQuestion.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="FAQ\Window1.xaml.cs">
+    </Compile>
     <Compile Update="MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -23,10 +29,19 @@
   </ItemGroup>
   <ItemGroup>
 
+    <Page Update="FAQ\AdminMode.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+	  <Page Update="FAQ\SubmitQuestion.xaml"> </Page>
+
+
+    <Page Update="faq-bonus\Window1.xaml">
+
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="FAQ\Window1.xaml">
       <SubType>Designer</SubType>
     </Page>
-
 
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>

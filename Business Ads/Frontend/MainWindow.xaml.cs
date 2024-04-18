@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Frontend.FAQ;
+using Frontend.PaymentsAndBillings.Controllers;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace Frontend
 {
     /// <summary>
@@ -29,6 +33,12 @@ namespace Frontend
                     ExportWindow exportWindow = new ExportWindow();
                     exportWindow.mainWindow = this;
                     exportWindow.Show();
+                    Hide();
+                };
+                faqButton.Click += (sender, eventData) =>
+                {
+                    Window1 faqWindow = new Window1();
+                    faqWindow.Show();
                     Hide();
                 };
             };

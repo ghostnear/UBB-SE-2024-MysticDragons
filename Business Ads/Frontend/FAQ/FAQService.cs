@@ -6,24 +6,37 @@ using System.Threading.Tasks;
 
 namespace Frontend.FAQ
 {
-    internal class FAQService
+    internal class FAQService 
     {
-        FAQRepository repo;
-        public FAQService()
+        private static readonly FAQService instance = new FAQService();
+        private FAQRepository repo;
+        private List<FAQ> submittedQuestions;
+
+        private FAQService()
         {
-            this.repo = new FAQRepository();
+            repo = new FAQRepository();
+            submittedQuestions = new List<FAQ>();
         }
 
-        public List<FAQ> getAll() 
-        { 
+        public static FAQService Instance
+        {
+            get { return instance; }
+        }
+
+        public List<FAQ> getAll()
+        {
             return repo.GetFAQList();
         }
-    
 
-    }
-    interface IService
-    {
-        public List<FAQ> getAll();
+        public void addSubmittedQuestion(FAQ newQ)
+        {
+            submittedQuestions.Add(newQ);
+        }
 
+        public List<FAQ> getSubmittedQuestions()
+        {
+            return submittedQuestions;
+        }
     }
+
 }

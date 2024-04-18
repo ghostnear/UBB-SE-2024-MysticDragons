@@ -34,17 +34,11 @@ namespace Frontend.FAQ
                 reviewList.Add(r5);
                 reviewList.Add(r6);
 
-
             }
 
             public void addReview(ReviewClass newR)
             {
                 reviewList.Add(newR);
-            }
-
-            public void deleteReview(ReviewClass q)
-            {
-                reviewList.Remove(q);
             }
 
 
@@ -54,7 +48,6 @@ namespace Frontend.FAQ
             public List<ReviewClass> GetReviewList();
             public void createReview();
             public void addReview(ReviewClass newR);
-            public void deleteReview(ReviewClass q);
 
         }
     }
