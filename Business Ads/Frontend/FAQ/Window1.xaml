@@ -49,14 +49,17 @@
         <Image Source="robot.png" HorizontalAlignment="Left" Height="77" Margin="39,36,0,0" VerticalAlignment="Top" Width="134"/>
         <TextBox x:Name="inputBox" GotFocus="inputBox_GotFocus" LostFocus="inputBox_LostFocus" HorizontalAlignment="Left" Margin="19,327,0,0" TextWrapping="Wrap" Text="Write feedback..." VerticalAlignment="Top" Width="134" Height="67"/>
         <Button Content="Submit" HorizontalAlignment="Left" Margin="118,373,0,0" VerticalAlignment="Top" Height="16" Width="27" FontSize="6" Padding="2" Click="Button_Click"/>
-        <Popup x:Name="answerPopup" Placement="Right" PlacementTarget="{Binding ElementName=listFAQ}" IsOpen="False">
+        <Popup x:Name="answerPopup" Placement="Right" PlacementTarget="{Binding ElementName=listFAQ}" IsOpen="False" Height="100" Width="100">
             <Border Background="White" BorderBrush="Black" BorderThickness="1">
-                <StackPanel>
-                    <TextBlock x:Name="answerTextBlock" TextWrapping="Wrap" Padding="10"/>
-                    <Button Content="Close" Click="ClosePopup_Click" HorizontalAlignment="Center"/>
-                </StackPanel>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="100" MaxWidth="100">
+                    <StackPanel>
+                        <TextBlock x:Name="answerTextBlock" TextWrapping="Wrap" Padding="10"/>
+                        <Button Content="Close" Click="ClosePopup_Click" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </ScrollViewer>
             </Border>
         </Popup>
+
         <Button x:Name="adminButton" BorderBrush="Black" BorderThickness="2" Content="Go to Admin Mode - questions" HorizontalAlignment="Left" Margin="596,312,0,0" VerticalAlignment="Top" Height="32" Width="178" RenderTransformOrigin="0.536,0.165"/>
         <Button x:Name="submitQuestionButton" BorderBrush="Black" BorderThickness="2" Content="Submit a new question" HorizontalAlignment="Left" Margin="609,258,0,0" VerticalAlignment="Top" Height="34" Width="153" Click="submitQuestionButton_Click"/>
         <Button x:Name="adminButton_Copy" BorderBrush="Black" BorderThickness="2" Content="Go to Admin Mode - reviews" HorizontalAlignment="Left" Margin="596,365,0,0" VerticalAlignment="Top" Height="37" Width="178" RenderTransformOrigin="0.536,0.165" Click="adminButton_Copy_Click"/>

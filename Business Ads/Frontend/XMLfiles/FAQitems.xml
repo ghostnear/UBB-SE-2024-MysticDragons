@@ -23,7 +23,7 @@
 	<FAQ>
 		<Question>How is the conversion rate calculated in digital marketing?</Question>
 		<Answer>The conversion rate in digital marketing is calculated by dividing the number of conversions (e.g., purchases, sign-ups) by the number of ad clicks, and then multiplying by 100 to get a percentage.</Answer>
-		<Topic>Ad Statistics</Topic>
+		<Topic>Digital Marketing</Topic>
 	</FAQ>
 	<FAQ>
 		<Question>What is the difference between CTR and conversion rate?</Question>
@@ -38,7 +38,7 @@
 	<FAQ>
 		<Question>How can I improve the click-through rate of my ads?</Question>
 		<Answer>To improve CTR, you can try tactics such as optimizing ad copy, using compelling visuals, targeting relevant audiences, and testing different ad formats.</Answer>
-		<Topic>Ad Statistics</Topic>
+		<Topic>Optimizing</Topic>
 	</FAQ>
 	<FAQ>
 		<Question>What is the significance of engagement metrics in ad campaigns?</Question>
@@ -48,7 +48,7 @@
 	<FAQ>
 		<Question>What are some key performance indicators (KPIs) for measuring ad campaign success?</Question>
 		<Answer>Common KPIs for ad campaign success include CTR, conversion rate, return on ad spend (ROAS), cost per acquisition (CPA), and customer lifetime value (CLV).</Answer>
-		<Topic>Ad Statistics</Topic>
+		<Topic>Optimizing</Topic>
 	</FAQ>
 	<FAQ>
 		<Question>What is the difference between CTR and CPC?</Question>
@@ -68,11 +68,11 @@
 	<FAQ>
 		<Question>What are some strategies for optimizing ad campaigns?</Question>
 		<Answer>Strategies for optimizing ad campaigns include A/B testing ad creatives, refining audience targeting, adjusting bidding strategies, and analyzing performance metrics regularly.</Answer>
-		<Topic>Ad Statistics</Topic>
+		<Topic>Optimizing</Topic>
 	</FAQ>
 	<FAQ>
 		<Question>What are view-through conversions in digital advertising?</Question>
 		<Answer>View-through conversions occur when a user sees an ad (but doesn't click on it), and later completes a conversion on the advertiser's website or app. They are attributed to the ad impression.</Answer>
-		<Topic>Ad Statistics</Topic>
+		<Topic>Digital Advertising</Topic>
 	</FAQ>
 </FAQs>
