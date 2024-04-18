@@ -6,16 +6,21 @@ using System.Threading.Tasks;
 
 namespace Frontend.FAQ
 {
-    class FAQ
+    public class FAQ
     {
         private int _id;
+        private static int _lastID = 0;
         private string _question;
         private string _answer;
         private string _topic;
 
-        public FAQ(int id, string q, string a, string topic)
+        public FAQ()
         {
-            this._id = id;
+
+        }
+        public FAQ(string q, string a, string topic)
+        {
+            this._id = ++_lastID;
             this._question = q;
             this._answer = a;
             this._topic = topic;
