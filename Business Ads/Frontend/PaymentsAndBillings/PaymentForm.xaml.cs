@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Backend.PaymentsAndBillings.Controllers;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Frontend.PaymentsAndBillings
 {
@@ -19,21 +11,46 @@ namespace Frontend.PaymentsAndBillings
     /// </summary>
     public partial class PaymentForm : Window
     {
-        public PaymentForm()
+        public Window mainWindow;
+        private readonly PaymentFormController _paymentController;
+
+        public PaymentForm(PaymentFormController c)
         {
+            _paymentController = c;
             InitializeComponent();
+            UpdateFields();
+
+            Closed += (sender, EventData) =>
+            {
+                mainWindow.Show();
+            };
         }
 
-        private void PayButton_Click(object sender, RoutedEventArgs e)
+        private void UpdateFields()
         {
-            MessageBox.Show("Payment has been processed successfully!");
+            itemName.Text = _paymentController.getProduct().Name;
+            itemDescription.Text = _paymentController.getProduct().Description;
+            itemPrice.Text = _paymentController.getProduct().Price;
+            var itemImageSource = _paymentController.getProduct().Image;
+            itemImage.Source = new BitmapImage(new Uri(itemImageSource, UriKind.Relative));
+        }
+
+        private async void PayButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                await _paymentController.SendPaymentConfirmationMailAsync();
+                MessageBox.Show("Payment sent successfully!");
+            }
+            catch
+            {
+                MessageBox.Show("Payment failed!");
+            }
         }
 
         private void HomePage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow main = new MainWindow();
-            main.Show();
-            this.Close();
+            Close();
         }
 
         private void Profile_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

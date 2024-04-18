@@ -1,18 +1,6 @@
-﻿using Frontend.PaymentsAndBillings.Controllers;
+﻿using System.Windows;
+using Backend.PaymentsAndBillings.Controllers;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Frontend.PaymentsAndBillings
 {
@@ -21,23 +9,33 @@ namespace Frontend.PaymentsAndBillings
     /// </summary>
     public partial class PaymentsAndBillingsMain : Window
     {
-        private readonly BankAccountsRepositoryWindow _bankAccountsRepositoryWindow;
-        private readonly PaymentForm _paymentForm;
+        public Window mainWindow;
 
         public PaymentsAndBillingsMain()
         {
-            _bankAccountsRepositoryWindow = App.ServiceProvider.GetService<BankAccountsRepositoryWindow>();
-            _paymentForm = App.ServiceProvider.GetService<PaymentForm>();
             InitializeComponent();
+
+            Closed += (sender, EventData) =>
+            {
+                mainWindow.Show();
+            };
         }
 
         private void BankAccountDetails_Click(object sender, RoutedEventArgs e)
         {
+            var _bankAccountsRepositoryWindow = new BankAccountsRepositoryWindow(
+                App.ServiceProvider.GetService<BankAccountController>()
+            );
+            _bankAccountsRepositoryWindow.mainWindow = this;
             _bankAccountsRepositoryWindow.Show();
         }
 
         private void PaymentForm_Click(object sender, RoutedEventArgs e)
         {
+            var _paymentForm = new PaymentForm(
+                App.ServiceProvider.GetService<PaymentFormController>()
+            );
+            _paymentForm.mainWindow = this;
             _paymentForm.Show();
         }
     }

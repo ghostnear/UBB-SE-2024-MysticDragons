@@ -12,12 +12,18 @@
     <PackageReference Include="CsvHelper" Version="31.0.4" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     <None Remove="FAQ\robot.png" />
+    <None Remove="PaymentsAndBillings\doggo.png" />
     <PackageReference Include="ScottPlot.WPF" Version="5.0.26" />
     <PackageReference Include="Syncfusion.Pdf.Wpf" Version="25.1.39" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Backend\Backend.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="FAQ\robot.png" />
+    <Resource Include="PaymentsAndBillings\doggo.png" />
   </ItemGroup>
 
 </Project>
