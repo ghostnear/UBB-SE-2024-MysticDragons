@@ -21,6 +21,7 @@ using System.Formats.Asn1;
 using System.Globalization;
 using System.IO;
 using CsvHelper;
+using Syncfusion.Pdf.Parsing;
 
 namespace Frontend
 {
@@ -30,11 +31,19 @@ namespace Frontend
     public partial class ExportWindow : Window
     {
         public Window mainWindow;
-        public class MyRecord
+        public class Stats
         {
-            public int Value1 { get; set; }
-            public int Value2 { get; set; }
+            public int views { get; set; }
+            public int clicks { get; set; }
+            public int buys { get; set; }
+            public int time { get; set; }
         }
+        public class User
+        {
+            public String Name { get; set; }
+
+        }
+        
 
         public ExportWindow()
         {
@@ -48,41 +57,74 @@ namespace Frontend
 
         private void ExportButton1_Click(object sender, RoutedEventArgs e)
         {
+            PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
+            if (FontBox.SelectedIndex == 1)
+                font = font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+            if (FontBox.SelectedIndex == 2)
+                font = font = new PdfStandardFont(PdfFontFamily.Courier, 12);
+            
+            try
+            {
+                float fontSize = float.Parse(SizeInput.Text);
+                //PdfFontFamily fontFamily = GetFontFamilyFromTextBox(FontInput.Text);
+            }
+            catch
+            {
+                throw (new Exception("Wrong Size Input"));
+            }
             if (Radio7.IsChecked == true)
             {
-                using (PdfDocument document = new PdfDocument())
+
+                //Save the document
+                if (DownloadButton1.IsChecked == true)
                 {
-                    //Add a page to the document
+                    PdfDocument document = new PdfDocument();
+
+                    // Add a page to the document
                     PdfPage page = document.Pages.Add();
 
-                    //Create PDF graphics for a page
+                    // Create a PdfGraphics object for drawing
                     PdfGraphics graphics = page.Graphics;
 
-                    //Set the standard font
-                    PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+                    if(ColorBox.SelectedIndex == 0)
+                    graphics.DrawString("Hello, Syncfusion PDF!", font, PdfBrushes.Black, new PointF(10, 10));
+                    if (ColorBox.SelectedIndex == 1)
+                        graphics.DrawString("Hello, Syncfusion PDF!", font, PdfBrushes.Gray, new PointF(10, 10));
+                    if (ColorBox.SelectedIndex == 2)
+                        graphics.DrawString("Hello, Syncfusion PDF!", font, PdfBrushes.Red, new PointF(10, 10));
 
-                    //Draw the text
-                    graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
+                    // Save the PDF document to a file
+                    string outputPath = "C:\\Users\\User\\Downloads\\output.pdf";
+                    document.Save(outputPath);
 
-                    //Save the document
-                    if (DownloadButton1.IsChecked == true)
-                        document.Save("Output.pdf");
+                    // Close the document
+                    document.Close(true);
+
+                }
                     if (EmailButton.IsChecked == true)
                     {
 
                     }
-                }
+                
                 
                 }
-            if (Radio5.IsChecked == true)
+            if (Radio6.IsChecked == true)
             {
                 if (DownloadButton1.IsChecked == true)
                 {
-                    using (var writer = new StreamWriter("output.csv"))
+                    string someText = "test";
+                    File.WriteAllText(@".\csc.txt", someText);
+                }
+            }
+                    if (Radio5.IsChecked == true)
+            {
+                if (DownloadButton1.IsChecked == true)
+                {
+                    using (var writer = new StreamWriter("C:\\Users\\User\\Downloads\\output.csv"))
 
                     using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
                     {
-                        List<MyRecord> records = [new MyRecord { Value1 = 1, Value2 = 3 }, new MyRecord { Value1 = 2, Value2 = 4 }];
+                        List<Stats> records = [new Stats { views = 1, clicks = 3, buys = 2, time = 1 }];
                         csv.WriteRecords(records);
                     }
                 }
