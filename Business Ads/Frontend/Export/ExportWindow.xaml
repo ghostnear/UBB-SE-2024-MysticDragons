@@ -16,7 +16,7 @@
         <CheckBox x:Name="EmailButton" Content="E-mail" HorizontalAlignment="Left" Margin="189,154,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="EmailInput" HorizontalAlignment="Left" Margin="254,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFDEDEDE" Height="15"/>
         <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="222,202,394,103"/>
-        <Button x:Name="ExportBtn" Content="Export" HorizontalAlignment="Left" Margin="334,356,0,0" VerticalAlignment="Top" Background="#FF94BDF3" Click="ExportButton1_Click"/>
+        <Button x:Name="ExportBtn" Content="Export" HorizontalAlignment="Left" Margin="334,356,0,0" VerticalAlignment="Top" Background="#FF94BDF3" Click="ExportButton_Click"/>
         <Button x:Name="ReturnButton" Content="Return" HorizontalAlignment="Left" Margin="240,356,0,0" VerticalAlignment="Top" Background="#FF94BDF3" Click="ReturnButton1_Click"/>
         <Grid>
             <Rectangle HorizontalAlignment="Left" Height="183" Stroke="Black" VerticalAlignment="Top" Width="236" StrokeThickness="20" Opacity="0.1" Margin="525,36,0,0">
@@ -24,7 +24,7 @@
                     <DropShadowEffect/>
                 </Rectangle.Effect>
             </Rectangle>
-            <RadioButton x:Name="Radio7" Content="PDF" HorizontalAlignment="Left" Margin="334,66,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="Extension"/>
+            <RadioButton x:Name="Radio7" Content="PDF" HorizontalAlignment="Left" Margin="334,66,0,0" VerticalAlignment="Top" GroupName="Extension" IsChecked="True"/>
             <RadioButton x:Name="Radio5" Content="CSV" HorizontalAlignment="Left" Margin="239,66,0,0" VerticalAlignment="Top" GroupName="Extension"/>
             <CheckBox x:Name="DownloadButton1" Content="Download" HorizontalAlignment="Left" Margin="189,120,0,0" VerticalAlignment="Top"/>
             <CheckBox x:Name="EmailButton1" Content="E-mail" HorizontalAlignment="Left" Margin="189,154,0,0" VerticalAlignment="Top"/>
@@ -36,7 +36,7 @@
                 <CheckBox x:Name="CTRCheck" Content="CTR"/>
                 <CheckBox x:Name="TimeCheck" Content="Time Viewed"/>
             </ListBox>
-            <Button x:Name="ExportButton1" Content="Export" HorizontalAlignment="Left" Margin="334,356,0,0" VerticalAlignment="Top" Background="#FF94BDF3" Click="ExportButton1_Click"/>
+            <Button x:Name="ExportButton1" Content="Export" HorizontalAlignment="Left" Margin="334,356,0,0" VerticalAlignment="Top" Background="#FF94BDF3" Click="ExportButton_Click"/>
             <Button x:Name="ReturnButton1" Content="Return" HorizontalAlignment="Left" Margin="240,356,0,0" VerticalAlignment="Top" Background="#FF94BDF3" Click="ReturnButton1_Click"/>
             <Rectangle HorizontalAlignment="Left" Height="183" Stroke="Black" VerticalAlignment="Top" Width="236" StrokeThickness="20" Opacity="0.1" Margin="525,224,0,0">
                 <Rectangle.Effect>
