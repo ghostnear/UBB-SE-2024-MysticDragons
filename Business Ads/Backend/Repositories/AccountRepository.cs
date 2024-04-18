@@ -1,15 +1,10 @@
-﻿using Frontend.PaymentsAndBillings.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Frontend.PaymentsAndBillings.Services;
+﻿using Backend.PaymentsAndBillings.Models;
+using Backend.PaymentsAndBillings.Services;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Frontend.PaymentsAndBillings.Repositories
+namespace Backend.PaymentsAndBillings.Repositories
 {
-    class AccountRepository
+    public class AccountRepository
     {
         private BankAccount _bankAccount;
         private string _emailKey;
@@ -99,9 +94,9 @@ namespace Frontend.PaymentsAndBillings.Repositories
             }
         }
 
-        public AccountRepository()
+        public AccountRepository(BankAccount account)
         {
-            BankAccount = App.ServiceProvider.GetService<BankAccount>();
+            BankAccount = account;
         }
     }
 }

@@ -1,11 +1,9 @@
-﻿using Frontend.PaymentsAndBillings.Controllers;
+﻿using System.Windows;
+using Backend.PaymentsAndBillings.Models;
+using Backend.PaymentsAndBillings.Controllers;
 using Microsoft.Extensions.DependencyInjection;
-using System.Configuration;
-using System.Data;
-using System.Windows;
 using Frontend.PaymentsAndBillings;
-using Frontend.PaymentsAndBillings.Models;
-using Frontend.PaymentsAndBillings.Repositories;
+using Backend.PaymentsAndBillings.Repositories;
 
 namespace Frontend
 {
@@ -21,7 +19,8 @@ namespace Frontend
             base.OnStartup(e);
 
             var services = new ServiceCollection();
-            services.AddSingleton<BankAccount>(new BankAccount
+
+            var bankAccount = new BankAccount
             {
                 Email = "osvathrobert03@gmail.com",
                 Name = "Name",
@@ -33,14 +32,18 @@ namespace Frontend
                 Number = "123456789",
                 HolderName = "Name Surname",
                 ExpiryDate = "12/23"
-            });
-            services.AddSingleton<AccountRepository>();
-            services.AddSingleton<BankAccountController>();
-            services.AddSingleton<BankAccountsRepositoryWindow>();
-            services.AddSingleton<PaymentForm>();
+            };
+            services.AddSingleton(bankAccount);
+
+            var accountRepository = new AccountRepository(bankAccount);
+            services.AddSingleton(accountRepository);
+
+            var bankAccountController = new BankAccountController(accountRepository);
+            services.AddSingleton(bankAccountController);
+
             ServiceProvider = services.BuildServiceProvider();
 
-            MainWindow mainWindow = new MainWindow();
+            MainWindow mainWindow = new();
             mainWindow.Show();
         }
     }
