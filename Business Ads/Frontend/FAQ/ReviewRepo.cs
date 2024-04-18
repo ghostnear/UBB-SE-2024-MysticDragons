@@ -37,7 +37,6 @@ namespace Frontend.FAQ
                     XmlSerializer serializer = new XmlSerializer(typeof(ReviewClass), new XmlRootAttribute("ReviewClass"));
 
                     reviewList = new List<ReviewClass>();
-                    xmlFilePath = $"C:\\Users\\User\\Documents\\GitHub\\UBB-SE-2024-MysticDragons\\Business Ads\\Frontend\\XMLFiles\\REVIEWitems.xml";
                     using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open))
                     using (XmlReader reader = XmlReader.Create(fileStream))
                     {

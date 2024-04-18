@@ -28,4 +28,8 @@
     <User>Dan Oliver</User>
     <Review>Liked it.</Review>
   </ReviewClass>
+  <ReviewClass>
+    <User>Dan Oliver</User>
+    <Review>oi</Review>
+  </ReviewClass>
 </Reviews>
