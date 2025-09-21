@@ -12,7 +12,7 @@ namespace Backend.Controllers
 
         public Task SendPaymentConfirmationMailAsync()
         {
-            var sender = "osvathrobert03@gmail.com";
+            var sender = "muie_u@gmail.com";
             var receiver = _accountRepository.BankAccount.Email;
             var password = "daes ndml ukpj qvuj";
 
